@@ -10,4 +10,11 @@ import tech.jour.template.base.mvvm.vm.BaseViewModel
  * @author Qu Yunshuo
  * @since 8/27/20
  */
-abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : BaseFrameFragment<VB, VM>()
+abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : BaseFrameFragment<VB, VM>(),
+    IUiView {
+    override fun showLoading() {
+    }
+
+    override fun dismissLoading() {
+    }
+}

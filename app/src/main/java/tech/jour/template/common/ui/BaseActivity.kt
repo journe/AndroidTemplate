@@ -14,7 +14,8 @@ import tech.jour.template.base.utils.BarUtils
  * @author Qu Yunshuo
  * @since 8/27/20
  */
-abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFrameActivity<VB, VM>() {
+abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFrameActivity<VB, VM>(),
+    IUiView {
 
     /**
      * 设置状态栏
@@ -35,5 +36,11 @@ abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFrameAct
         super.onDestroy()
         // 解决某些特定机型会触发的Android本身的Bug
         AndroidBugFixUtils().fixSoftInputLeaks(this)
+    }
+
+    override fun showLoading() {
+    }
+
+    override fun dismissLoading() {
     }
 }
