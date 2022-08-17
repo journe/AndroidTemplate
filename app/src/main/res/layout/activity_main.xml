@@ -16,15 +16,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <androidx.cardview.widget.CardView
+    <com.lihang.ShadowLayout
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
+        app:hl_cornerRadius="10dp"
+        app:hl_shadowColor="#2a000000"
+        app:hl_shadowHiddenBottom="true"
+        app:hl_shadowHiddenLeft="false"
+        app:hl_shadowHiddenRight="false"
+        app:hl_shadowLimit="8dp"
+        app:hl_shadowSymmetry="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -34,8 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/menu_bottom_navi">
+            app:menu="@menu/menu_bottom_navi" />
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </androidx.cardview.widget.CardView>
+    </com.lihang.ShadowLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
