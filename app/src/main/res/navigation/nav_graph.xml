@@ -25,4 +25,9 @@
         android:id="@+id/action_SecondFragment_to_FirstFragment"
         app:destination="@id/FirstFragment" />
   </fragment>
+  <fragment
+      android:id="@+id/loginFragment"
+      android:name="tech.jour.template.module.login.ui.login.LoginFragment"
+      android:label="fragment_login"
+      tools:layout="@layout/fragment_login" />
 </navigation>

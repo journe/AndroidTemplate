@@ -4,6 +4,7 @@ import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import dagger.hilt.android.AndroidEntryPoint
 import tech.jour.template.base.ktx.observeLiveData
@@ -36,6 +37,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             ?: return
 
         navController = host.navController
+        NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 
     }
 
