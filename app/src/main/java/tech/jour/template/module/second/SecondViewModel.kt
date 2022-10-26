@@ -11,14 +11,15 @@ import javax.inject.Inject
 class SecondViewModel @Inject constructor(private val mRepository: SecondRepository) :
     BaseViewModel() {
 
-    val data = MutableLiveData<AccountBean>()
+    val data = MutableLiveData<AccountBean?>()
 
     /**
      * 模拟获取数据
      */
     fun getData() {
         launchIO {
-            data.postValue(mRepository.getData())
+            val res = mRepository.getData()
+            data.postValue(res)
         }
     }
 }

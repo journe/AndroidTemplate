@@ -1,4 +1,4 @@
-package tech.jour.template.common.di
+package tech.jour.template.common.retrofit
 
 import tech.jour.template.base.constant.VersionStatus
 import tech.jour.template.common.constant.NetBaseUrlConstant
@@ -14,6 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 import retrofit2.converter.gson.GsonConverterFactory
 import tech.jour.template.BuildConfig
+import tech.jour.template.common.retrofit.HttpLogger
 import javax.inject.Singleton
 
 /**
@@ -36,12 +37,21 @@ class DINetworkModule {
     fun provideOkHttpClient(): OkHttpClient {
         // 日志拦截器部分
         val level = if (BuildConfig.VERSION_TYPE != VersionStatus.RELEASE) BODY else NONE
-        val logInterceptor = HttpLoggingInterceptor().setLevel(level)
-
+        val logInterceptor = HttpLoggingInterceptor(HttpLogger()).setLevel(level)
         return OkHttpClient.Builder()
             .connectTimeout(15L * 1000L, TimeUnit.MILLISECONDS)
             .readTimeout(20L * 1000L, TimeUnit.MILLISECONDS)
             .addInterceptor(logInterceptor)
+            .addInterceptor {
+                val original = it.request()
+                val req =
+                    original.newBuilder()
+                        .addHeader("Content-Type", "application/json")//添加头部
+                        .addHeader("Accept", "application/json")
+                        .method(original.method, original.body)
+                        .build()
+                it.proceed(req)
+            }
             .retryOnConnectionFailure(true)
             .build()
     }

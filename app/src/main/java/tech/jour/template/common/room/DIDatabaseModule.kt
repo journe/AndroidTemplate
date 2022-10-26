@@ -1,4 +1,4 @@
-package tech.jour.template.common.di
+package tech.jour.template.common.room
 
 import android.content.Context
 import dagger.Module

@@ -21,7 +21,7 @@ class SecondFragment : BaseFragment<FragmentSecondBinding, SecondViewModel>() {
 
     override fun initObserve() {
         mViewModel.data.observe(this) {
-            mBinding.textviewSecond.text = it.nickname
+            mBinding.textviewSecond.text = it?.nickname
         }
     }
 

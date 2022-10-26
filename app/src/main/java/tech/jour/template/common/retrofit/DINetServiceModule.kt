@@ -1,6 +1,5 @@
-package tech.jour.template.common.di
+package tech.jour.template.common.retrofit
 
-import tech.jour.template.common.retrofit.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

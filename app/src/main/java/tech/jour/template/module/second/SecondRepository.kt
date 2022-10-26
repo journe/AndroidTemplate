@@ -16,5 +16,5 @@ class SecondRepository @Inject constructor() : BaseRepository() {
     /**
      * 模拟获取数据
      */
-    suspend fun getData() = database.accountDao().getUserById(0)
+    fun getData() = database.accountDao().getUserById(0)
 }

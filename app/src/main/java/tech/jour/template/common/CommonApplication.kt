@@ -6,6 +6,10 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.google.auto.service.AutoService
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
+import com.orhanobut.logger.PrettyFormatStrategy
+import tech.jour.template.BuildConfig
 import tech.jour.template.base.BaseApplication
 import tech.jour.template.base.app.ApplicationLifecycle
 import tech.jour.template.base.utils.ProcessUtils
@@ -71,6 +75,7 @@ class CommonApplication : ApplicationLifecycle {
      */
     override fun initByBackstage() {
 //        initX5WebViewCore()
+        initLogger()
     }
 
     /**
@@ -118,4 +123,17 @@ class CommonApplication : ApplicationLifecycle {
 //        )
         return "Bugly -->> init complete"
     }
+
+    private fun initLogger(): String {
+        Logger.addLogAdapter(object :
+            AndroidLogAdapter(
+                PrettyFormatStrategy.newBuilder().tag("jour").build()
+            ) {
+            override fun isLoggable(priority: Int, tag: String?): Boolean {
+                return BuildConfig.DEBUG
+            }
+        })
+        return "Logger -->> init complete"
+    }
+
 }
