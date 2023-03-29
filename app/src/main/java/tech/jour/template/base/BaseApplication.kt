@@ -4,12 +4,15 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import coil.ImageLoader
+import coil.ImageLoaderFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import tech.jour.template.base.app.ActivityLifecycleCallbacksImpl
 import tech.jour.template.base.app.LoadModuleProxy
+import tech.jour.template.base.utils.CoilGIFImageLoader
 import kotlin.system.measureTimeMillis
 
 /**
@@ -18,7 +21,7 @@ import kotlin.system.measureTimeMillis
  * @author Qu Yunshuo
  * @since 4/24/21 5:30 PM
  */
-open class BaseApplication : Application() {
+open class BaseApplication : Application(), ImageLoaderFactory {
 
 	private val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.NONE) { MainScope() }
 
@@ -77,5 +80,8 @@ open class BaseApplication : Application() {
 		super.onTerminate()
 		mLoadModuleProxy.onTerminate(this)
 		mCoroutineScope.cancel()
+	}
+	override fun newImageLoader(): ImageLoader {
+		return CoilGIFImageLoader.imageLoader
 	}
 }

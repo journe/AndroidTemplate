@@ -31,8 +31,6 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppComp
         setContentView(mBinding.root)
         // ARouter 依赖注入
 //        ARouter.getInstance().inject(this)
-        // 注册EventBus
-//        if (javaClass.isAnnotationPresent(EventBusRegister::class.java)) EventBusUtils.register(this)
 
         setStatusBar()
         mBinding.initView()
@@ -73,9 +71,6 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppComp
     }
 
     override fun onDestroy() {
-//        if (javaClass.isAnnotationPresent(EventBusRegister::class.java)) EventBusUtils.unRegister(
-//            this
-//        )
         super.onDestroy()
     }
 

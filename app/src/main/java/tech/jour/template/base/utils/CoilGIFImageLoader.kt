@@ -2,8 +2,8 @@ package tech.jour.template.base.utils
 
 import android.os.Build.VERSION.SDK_INT
 import coil.ImageLoader
-//import coil.decode.GifDecoder
-//import coil.decode.ImageDecoderDecoder
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import tech.jour.template.base.BaseApplication
 
 /**
@@ -14,13 +14,13 @@ import tech.jour.template.base.BaseApplication
  */
 object CoilGIFImageLoader {
 
-//    val imageLoader = ImageLoader.Builder(BaseApplication.context)
-//        .componentRegistry {
-//            if (SDK_INT >= 28) {
-//                add(ImageDecoderDecoder(BaseApplication.context))
-//            } else {
-//                add(GifDecoder())
-//            }
-//        }
-//        .build()
+	val imageLoader = ImageLoader.Builder(BaseApplication.context)
+		.components {
+			if (SDK_INT >= 28) {
+				add(ImageDecoderDecoder.Factory())
+			} else {
+				add(GifDecoder.Factory())
+			}
+		}
+		.build()
 }
