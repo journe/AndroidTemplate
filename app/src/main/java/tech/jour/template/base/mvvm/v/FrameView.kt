@@ -8,12 +8,12 @@ import androidx.viewbinding.ViewBinding
  * @author Qu Yunshuo
  * @since 10/13/20
  */
-interface FrameView<VB : ViewBinding> {
+interface FrameView {
 
     /**
-     * 初始化View
+     * 初始化 View
      */
-    fun VB.initView()
+    fun initView()
 
     /**
      * 订阅LiveData

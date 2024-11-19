@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 //import com.alibaba.android.arouter.launcher.ARouter
 import tech.jour.template.base.mvvm.vm.BaseViewModel
-import tech.jour.template.base.utils.BindingReflex
+import tech.jour.template.base.utils.TUtil
 
 /**
  * Fragment基类
@@ -17,7 +17,7 @@ import tech.jour.template.base.utils.BindingReflex
  * @since 8/27/20
  */
 abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(),
-	FrameView<VB> {
+	FrameView {
 
 	/**
 	 * 私有的 ViewBinding 此写法来自 Google Android 官方
@@ -33,8 +33,14 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragmen
 		container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		_binding = BindingReflex.reflexViewBinding(javaClass, layoutInflater)
+		createBinding()
 		return _binding?.root
+	}
+
+	private fun createBinding() {
+		val clazzBD: Class<VB> = TUtil.getClazz<Class<VB>>(this, 0)
+		_binding = clazzBD.getMethod("inflate", LayoutInflater::class.java)
+			.invoke(null, layoutInflater) as VB
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +48,7 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragmen
 		// ARouter 依赖注入
 //        ARouter.getInstance().inject(this)
 
-		_binding?.initView()
+		initView()
 		initObserve()
 		initRequestData()
 	}
@@ -55,4 +61,6 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragmen
 	override fun onDestroy() {
 		super.onDestroy()
 	}
+
+
 }

@@ -9,17 +9,17 @@ import tech.jour.template.databinding.FragmentFirstBinding
 
 class FirstFragment : BaseFragment<FragmentFirstBinding, EmptyViewModel>() {
 
-    override val mViewModel: EmptyViewModel by viewModels()
+	override val mViewModel: EmptyViewModel by viewModels()
 
-    override fun FragmentFirstBinding.initView() {
-        mBinding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-    }
+	override fun initView() {
+		mBinding.buttonFirst.setOnClickListener {
+			findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+		}
+	}
 
-    override fun initObserve() {
-    }
+	override fun initObserve() {
+	}
 
-    override fun initRequestData() {
-    }
+	override fun initRequestData() {
+	}
 }

@@ -10,7 +10,7 @@ class DFragment : BaseFragment<FragmentSecondBinding, DViewModel>() {
 
     override val mViewModel: DViewModel by viewModels()
 
-    override fun FragmentSecondBinding.initView() {
+    override fun initView() {
         mBinding.buttonSecond.setOnClickListener {
         }
 

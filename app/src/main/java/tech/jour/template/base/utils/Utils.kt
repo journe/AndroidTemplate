@@ -43,24 +43,6 @@ suspend fun startPolling(intervals: Long, block: () -> Unit) {
 
 /**************************************************************************************************/
 /**
- * toast
- * @param msg String 文案
- * @param duration Int 时间
- */
-fun toast(msg: String, duration: Int = Toast.LENGTH_SHORT) {
-    ToastUtils.showToast(msg, duration)
-}
-
-/**
- * toast
- * @param msgId Int String资源ID
- * @param duration Int 时间
- */
-fun toast(msgId: Int, duration: Int = Toast.LENGTH_SHORT) {
-    ToastUtils.showToast(msgId, duration)
-}
-/**************************************************************************************************/
-/**
  * 获取App版本号
  * @return Long App版本号
  */

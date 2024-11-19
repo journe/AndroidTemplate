@@ -21,42 +21,39 @@ import tech.jour.template.databinding.ActivityMainBinding
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-    /**
-     * 通过 viewModels() + Hilt 获取 ViewModel 实例
-     */
-    override val mViewModel by viewModels<MainViewModel>()
+	/**
+	 * 通过 viewModels() + Hilt 获取 ViewModel 实例
+	 */
+	override val mViewModel by viewModels<MainViewModel>()
 
-    private lateinit var navController: NavController
+	private lateinit var navController: NavController
 
-    override fun ActivityMainBinding.initView() {
-        val binding = mBinding
-        setContentView(binding.root)
+	override fun initView() {
+		val host: NavHostFragment = supportFragmentManager
+			.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment?
+			?: return
 
-        val host: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment?
-            ?: return
+		navController = host.navController
+		NavigationUI.setupWithNavController(mBinding.bottomNavigation, navController);
 
-        navController = host.navController
-        NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+	}
 
-    }
+	override fun initObserve() {
+		observeLiveData(mViewModel.data, ::processData)
+	}
 
-    override fun initObserve() {
-        observeLiveData(mViewModel.data, ::processData)
-    }
-
-    private fun processData(data: String) {
-        toast(data)
+	private fun processData(data: String) {
+		toast(data)
 //        mBinding.vTvHello.text = data
 //        mBinding.vTvHello.setTextColor(Color.BLUE)
-    }
+	}
 
-    override fun initRequestData() {
-        // 模拟获取数据
-        mViewModel.getData()
-    }
+	override fun initRequestData() {
+		// 模拟获取数据
+		mViewModel.getData()
+	}
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
+	override fun onSupportNavigateUp(): Boolean {
+		return navController.navigateUp() || super.onSupportNavigateUp()
+	}
 }

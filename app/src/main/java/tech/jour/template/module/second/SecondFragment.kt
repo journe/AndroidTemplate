@@ -12,7 +12,7 @@ class SecondFragment : BaseFragment<FragmentSecondBinding, SecondViewModel>() {
 
     override val mViewModel: SecondViewModel by viewModels()
 
-    override fun FragmentSecondBinding.initView() {
+    override fun initView() {
         mBinding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }

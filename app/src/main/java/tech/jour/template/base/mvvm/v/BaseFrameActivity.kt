@@ -3,6 +3,7 @@ package tech.jour.template.base.mvvm.v
 import android.content.res.Resources
 import android.os.Bundle
 import android.os.Looper
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import tech.jour.template.base.mvvm.vm.BaseViewModel
@@ -18,25 +19,32 @@ import tech.jour.template.base.utils.network.NetworkTypeEnum
  * @since 8/27/20
  */
 abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity(),
-    FrameView<VB>, NetworkStateChangeListener {
+    FrameView, NetworkStateChangeListener {
 
-    protected val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
-        BindingReflex.reflexViewBinding(javaClass, layoutInflater)
-    }
+    protected lateinit var mBinding: VB
 
     protected abstract val mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(mBinding.root)
         // ARouter 依赖注入
 //        ARouter.getInstance().inject(this)
 
         setStatusBar()
-        mBinding.initView()
+        createBinding()
+        initView()
         initNetworkListener()
         initObserve()
         initRequestData()
+    }
+
+    private fun createBinding() {
+        val clazzBD: Class<VB> = TUtil.getClazz<Class<VB>>(this, 0)
+        //如果是DataBinding
+        //ViewBinding
+        mBinding = clazzBD.getMethod("inflate", LayoutInflater::class.java)
+            .invoke(null, layoutInflater) as VB
+        setContentView(mBinding.root)
     }
 
     /**
