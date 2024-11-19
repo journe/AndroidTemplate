@@ -90,8 +90,9 @@ dependencies {
 	// optional - Paging 3 Integration
 	implementation("androidx.room:room-paging:$roomVersion")
 
-	implementation("com.google.dagger:hilt-android:2.44")
-	kapt("com.google.dagger:hilt-compiler:2.44")
+	val hiltVersion = "2.51.1"
+	implementation("com.google.dagger:hilt-android:$hiltVersion")
+	kapt("com.google.dagger:hilt-compiler:$hiltVersion")
 
 	implementation("com.google.auto.service:auto-service:1.0")
 	kapt("com.google.auto.service:auto-service-annotations:1.0")
