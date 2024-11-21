@@ -40,7 +40,6 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppComp
 
     private fun createBinding() {
         val clazzBD: Class<VB> = TUtil.getClazz<Class<VB>>(this, 0)
-        //如果是DataBinding
         //ViewBinding
         mBinding = clazzBD.getMethod("inflate", LayoutInflater::class.java)
             .invoke(null, layoutInflater) as VB

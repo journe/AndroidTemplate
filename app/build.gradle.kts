@@ -57,11 +57,9 @@ dependencies {
 	implementation("com.google.code.gson:gson:2.10")
 	implementation("androidx.collection:collection-ktx:1.4.0")
 
-	val navVersion = "2.7.6"
 
-	// Kotlin
-	implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-	implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+	implementation(libs.androidx.navigation.fragment.ktx)
+	implementation(libs.androidx.navigation.ui.ktx)
 
 	implementation("androidx.viewpager2:viewpager2:1.0.0")
 	implementation("androidx.recyclerview:recyclerview:1.3.2")
