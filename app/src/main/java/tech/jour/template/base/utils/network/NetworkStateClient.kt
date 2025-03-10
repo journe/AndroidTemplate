@@ -10,7 +10,7 @@ import tech.jour.template.base.BaseApplication
 /**
  * 网络状态监听
  *
- * @author Qu Yunshuo
+ *
  * @since 2021/7/11 3:58 下午
  */
 object NetworkStateClient {

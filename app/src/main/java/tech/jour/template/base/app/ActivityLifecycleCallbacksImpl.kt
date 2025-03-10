@@ -10,8 +10,6 @@ import tech.jour.template.base.utils.ForegroundBackgroundHelper
 /**
  * Activity生命周期监听
  *
- * @author Qu Yunshuo
- * @since 4/20/21 9:10 AM
  */
 class ActivityLifecycleCallbacksImpl : Application.ActivityLifecycleCallbacks {
 

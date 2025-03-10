@@ -20,7 +20,7 @@ import javax.inject.Singleton
 /**
  * 全局作用域的网络层的依赖注入模块c
  *
- * @author Qu Yunshuo
+ *
  * @since 6/4/21 8:58 AM
  */
 @Module

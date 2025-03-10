@@ -6,22 +6,24 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
-    <com.allen.library.shape.ShapeTextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:shapeCornersRadius="8dp"
-        app:shapeSolidColor="@color/black70"
-        tools:text="@tools:sample/lorem/random" />
+  <com.hjq.shape.view.ShapeTextView
+      android:id="@+id/content"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:paddingStart="16dp"
+      android:paddingTop="8dp"
+      android:paddingEnd="16dp"
+      android:paddingBottom="8dp"
+      android:textColor="@color/white"
+      android:textSize="15sp"
+      app:shape_radius="8dp"
+      app:shape_solidColor="@color/black70"
+      tools:text="@tools:sample/lorem/random"
+      />
 
 </LinearLayout>
 

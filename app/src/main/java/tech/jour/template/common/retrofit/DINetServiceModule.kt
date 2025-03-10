@@ -10,7 +10,7 @@ import javax.inject.Singleton
 /**
  * 全局作用域的Home组件网络接口代理依赖注入模块
  *
- * @author Qu Yunshuo
+ *
  * @since 6/4/21 5:51 PM
  */
 @Module

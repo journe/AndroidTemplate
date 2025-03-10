@@ -14,8 +14,8 @@ import kotlinx.coroutines.*
  * @return Job
  */
 fun ViewModel.launchIO(
-    exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-        throwable.printStackTrace()
-    },
-    block: suspend CoroutineScope.() -> Unit
+	exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+		throwable.printStackTrace()
+	},
+	block: suspend CoroutineScope.() -> Unit
 ): Job = viewModelScope.launch(Dispatchers.IO + exceptionHandler, block = block)

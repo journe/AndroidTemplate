@@ -13,13 +13,14 @@ class MainViewModel @Inject constructor(private val mRepository: MainRepository)
 
 	val data = MutableLiveData<String>()
 
+
 	/**
 	 * 模拟获取数据
 	 */
 	fun getData() {
 		launchIO {
 			mRepository.getData()
-				.catch { Log.d("qqq", "getData: $it") }
+				.catch { Log.d("launchIO Exception", "getData: $it") }
 				.collect { data.postValue(it) }
 		}
 	}

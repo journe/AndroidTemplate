@@ -13,7 +13,7 @@ import tech.jour.template.base.utils.TUtil
 /**
  * Fragment基类
  *
- * @author Qu Yunshuo
+ *
  * @since 8/27/20
  */
 abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(),

@@ -4,10 +4,6 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 /**
- * Created by yzy on 2020-07-08 14:41
- * Email: yzytmac@163.com
- * Phone: 18971165201
- * QQ: 398564331
  * Description: 泛型工具类
  */
 object TUtil {

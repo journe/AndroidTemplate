@@ -4,7 +4,7 @@ import android.app.Activity
 import java.util.*
 
 /**
- * @Author: QuYunShuo
+ *
  * @Time: 2020/9/11
  * @Class: ActivityStackManager
  * @Remark: Activity 栈管理类

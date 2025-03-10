@@ -2,15 +2,12 @@ package tech.jour.template.base.utils
 
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
-//import com.alibaba.android.arouter.launcher.ARouter
-import tech.jour.template.base.BaseApplication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import tech.jour.template.base.BaseApplication
 
 /**
  * 使用 Flow 做的简单的轮询
@@ -20,26 +17,17 @@ import kotlinx.coroutines.flow.flowOn
  * @param block 需要执行的代码块
  */
 suspend fun startPolling(intervals: Long, block: () -> Unit) {
-    flow {
-        while (true) {
-            delay(intervals)
-            emit(0)
-        }
-    }
-        .catch { Log.e("flow", "startPolling: $it") }
-        .flowOn(Dispatchers.Main)
-        .collect { block.invoke() }
+	flow {
+		while (true) {
+			delay(intervals)
+			emit(0)
+		}
+	}
+		.catch { Log.e("flow", "startPolling: $it") }
+		.flowOn(Dispatchers.Main)
+		.collect { block.invoke() }
 }
 /**************************************************************************************************/
-
-///**************************************************************************************************/
-///**
-// * 阿里路由不带参数跳转
-// * @param routerUrl String 路由地址
-// */
-//fun aRouterJump(routerUrl: String) {
-//    ARouter.getInstance().build(routerUrl).navigation()
-//}
 
 /**************************************************************************************************/
 /**
@@ -47,24 +35,12 @@ suspend fun startPolling(intervals: Long, block: () -> Unit) {
  * @return Long App版本号
  */
 fun getVersionCode(): Long {
-    val packageInfo = BaseApplication.context
-        .packageManager
-        .getPackageInfo(BaseApplication.context.packageName, 0)
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        packageInfo.longVersionCode
-    } else {
-        packageInfo.versionCode.toLong()
-    }
-}
-
-/**************************************************************************************************/
-/**
- * 获取App版本名
- * @return String App版本名
- */
-fun getVersionName(): String {
-    return BaseApplication.context
-        .packageManager
-        .getPackageInfo(BaseApplication.context.packageName, 0)
-        .versionName
+	val packageInfo = BaseApplication.context
+		.packageManager
+		.getPackageInfo(BaseApplication.context.packageName, 0)
+	return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+		packageInfo.longVersionCode
+	} else {
+		packageInfo.versionCode.toLong()
+	}
 }

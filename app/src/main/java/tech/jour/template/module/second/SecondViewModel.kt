@@ -1,6 +1,5 @@
 package tech.jour.template.module.second
 
-import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import tech.jour.template.base.ktx.launchIO
 import tech.jour.template.base.mvvm.vm.BaseViewModel
@@ -9,17 +8,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SecondViewModel @Inject constructor(private val mRepository: SecondRepository) :
-    BaseViewModel() {
+	BaseViewModel() {
 
-    val data = MutableLiveData<AccountBean?>()
+	val dataFlow = mRepository.getDataFlow()
 
-    /**
-     * 模拟获取数据
-     */
-    fun getData() {
-        launchIO {
-            val res = mRepository.getData()
-            data.postValue(res)
-        }
-    }
+	fun insertData(bean: AccountBean) {
+		launchIO { mRepository.insertData(bean) }
+	}
+
+	fun insertDataIO(bean: AccountBean) = mRepository.insertData(bean)
+
 }

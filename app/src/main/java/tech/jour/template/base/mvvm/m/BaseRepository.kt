@@ -11,7 +11,7 @@ import tech.jour.template.common.retrofit.*
 /**
  * 仓库层 Repository 基类
  *
- * @author Qu Yunshuo
+ *
  * @since 8/27/20
  */
 open class BaseRepository {

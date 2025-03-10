@@ -13,7 +13,7 @@ class FirstFragment : BaseFragment<FragmentFirstBinding, EmptyViewModel>() {
 
 	override fun initView() {
 		mBinding.buttonFirst.setOnClickListener {
-			findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+			findNavController().navigate(R.id.SecondFragment)
 		}
 	}
 

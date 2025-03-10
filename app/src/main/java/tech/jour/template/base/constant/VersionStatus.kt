@@ -3,7 +3,6 @@ package tech.jour.template.base.constant
 /**
  * 版本状态
  *
- * @author Qu Yunshuo
  * @since 4/20/21 9:05 AM
  */
 object VersionStatus {

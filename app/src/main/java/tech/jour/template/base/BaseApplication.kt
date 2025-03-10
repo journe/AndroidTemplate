@@ -18,7 +18,6 @@ import kotlin.system.measureTimeMillis
 /**
  * Application 基类
  *
- * @author Qu Yunshuo
  * @since 4/24/21 5:30 PM
  */
 open class BaseApplication : Application(), ImageLoaderFactory {

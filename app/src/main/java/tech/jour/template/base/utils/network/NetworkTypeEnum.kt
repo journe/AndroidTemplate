@@ -3,7 +3,7 @@ package tech.jour.template.base.utils.network
 /**
  * 网络类型的枚举
  *
- * @author Qu Yunshuo
+ *
  * @since 2021/8/22 10:35 下午
  */
 enum class NetworkTypeEnum {

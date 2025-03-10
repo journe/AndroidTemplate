@@ -2,20 +2,17 @@ package tech.jour.template
 
 import androidx.activity.viewModels
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.navigateUp
 import dagger.hilt.android.AndroidEntryPoint
 import tech.jour.template.base.ktx.observeLiveData
-import tech.jour.template.base.utils.toast
 import tech.jour.template.common.ui.BaseActivity
 import tech.jour.template.databinding.ActivityMainBinding
+import tech.jour.template.module.xpop.toastCenter
 
 /**
  * 首页
  *
- * @author Qu Yunshuo
  * @since 5/22/21 2:26 PM
  */
 @AndroidEntryPoint
@@ -43,9 +40,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 	}
 
 	private fun processData(data: String) {
-		toast(data)
-//        mBinding.vTvHello.text = data
-//        mBinding.vTvHello.setTextColor(Color.BLUE)
+//		toast(data)
+		toastCenter(this,data)
 	}
 
 	override fun initRequestData() {

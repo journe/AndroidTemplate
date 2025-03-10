@@ -9,6 +9,7 @@ import tech.jour.template.base.ktx.invisible
 import tech.jour.template.base.ktx.visible
 import tech.jour.template.databinding.LayoutHomeHeadCckBinding
 
+//自定义view示例
 class CustomView : ConstraintLayout {
 
 	lateinit var mBinding: LayoutHomeHeadCckBinding

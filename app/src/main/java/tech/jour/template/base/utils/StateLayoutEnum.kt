@@ -3,7 +3,7 @@ package tech.jour.template.base.utils
 /**
  * 状态视图的状态枚举
  *
- * @author Qu Yunshuo
+ *
  * @since 2021/7/10 9:16 上午
  */
 enum class StateLayoutEnum {

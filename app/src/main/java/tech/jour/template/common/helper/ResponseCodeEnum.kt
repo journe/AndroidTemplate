@@ -3,7 +3,7 @@ package tech.jour.template.common.helper
 /**
  * 请求响应code枚举抽象
  *
- * @author Qu Yunshuo
+ *
  * @since 2021/7/9 2:56 下午
  */
 interface IResponseCode {
@@ -24,7 +24,7 @@ interface IResponseCode {
 /**
  * 请求响应code的枚举
  *
- * @author Qu Yunshuo
+ *
  * @since 2021/7/9 2:55 下午
  */
 enum class ResponseCodeEnum : IResponseCode {

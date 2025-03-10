@@ -1,7 +1,5 @@
 package tech.jour.template.common
 
-//import android.util.Log
-//import com.alibaba.android.arouter.launcher.ARouter
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
@@ -16,15 +14,9 @@ import tech.jour.template.base.utils.ForegroundBackgroundObserver
 import tech.jour.template.base.utils.ProcessUtils
 import tech.jour.template.base.utils.network.NetworkStateClient
 
-//import com.tencent.bugly.crashreport.CrashReport
-//import com.tencent.smtt.export.external.TbsCoreSettings
-//import com.tencent.smtt.sdk.QbSdk
-//import com.tencent.smtt.sdk.QbSdk.PreInitCallback
-
 /**
  * 项目相关的Application
  *
- * @author Qu Yunshuo
  * @since 4/16/21 3:37 PM
  */
 @AutoService(ApplicationLifecycle::class)
@@ -97,18 +89,6 @@ class CommonApplication : ApplicationLifecycle, ForegroundBackgroundObserver {
 		return "MMKV -->> "
 	}
 
-//    /**
-//     * 阿里路由 ARouter 初始化
-//     */
-//    private fun initARouter(): String {
-//        // 测试环境下打开ARouter的日志和调试模式 正式环境需要关闭
-//        if (BuildConfig.VERSION_TYPE != VersionStatus.RELEASE) {
-//            ARouter.openLog()     // 打印日志
-//            ARouter.openDebug()   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-//        }
-//        ARouter.init(BaseApplication.application)
-//        return "ARouter -->> init complete"
-//    }
 
 	/**
 	 * 初始化 腾讯Bugly

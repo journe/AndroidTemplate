@@ -110,7 +110,7 @@ import tech.jour.template.base.BaseApplication;
  *       .create();
  * </pre>
  *
- * @author Qu Yunshuo
+ *
  * @since 2020/9/17
  */
 public final class SpannableStringUtils {

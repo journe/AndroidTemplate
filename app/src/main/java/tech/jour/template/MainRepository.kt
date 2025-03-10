@@ -7,14 +7,15 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor() : BaseRepository() {
 
-    @Inject
-    lateinit var mApi: ApiService
+	@Inject
+	lateinit var mApi: ApiService
 
-    /**
-     * 模拟获取数据
-     */
-    suspend fun getData() = request<String> {
-        delay(1000L)
-        emit("Hello Hilt")
-    }
+	/**
+	 * 模拟获取数据
+	 * 返回flow
+	 */
+	fun getData() = request<String> {
+		delay(1000L)
+		emit("MainActivity\nMainRepository\n模拟请求成功")
+	}
 }

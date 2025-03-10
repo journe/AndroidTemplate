@@ -11,20 +11,41 @@
       android:id="@+id/textview_second"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintBottom_toTopOf="@id/button_second"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      tools:text="textview_second"
       />
-
+  <TextView
+      android:id="@+id/phoneTv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textview_second"
+      tools:text="phoneTv"
+      />
   <Button
       android:id="@+id/button_second"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
       android:text="@string/previous"
-      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/textview_second"
+      app:layout_constraintTop_toBottomOf="@+id/phoneTv"
+      />
+  <Button
+      android:id="@+id/updateBtn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="更新数据库信息"
+      app:layout_constraintStart_toStartOf="@+id/button_second"
+      app:layout_constraintTop_toBottomOf="@+id/button_second"
       />
 </androidx.constraintlayout.widget.ConstraintLayout>

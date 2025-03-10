@@ -9,7 +9,6 @@ import tech.jour.template.base.BaseApplication
 /**
  * 用于加载 Gif 的 Coil ImageLoader
  *
- * @author Qu Yunshuo
  * @since 2021/9/6 4:26 下午
  */
 object CoilGIFImageLoader {
