@@ -5,8 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class AccountBean(
-	@PrimaryKey
-	val id: Int = 0,
-	val nickname: String? = null,
+	@PrimaryKey(autoGenerate = true)
+	var id: Int,
+	var nickname: String? = null,
 	var phone: String? = null,
-)
+) {
+	constructor(name: String, pass: String) : this(0, name, pass)
+}

@@ -10,12 +10,15 @@ import javax.inject.Inject
 class SecondViewModel @Inject constructor(private val mRepository: SecondRepository) :
 	BaseViewModel() {
 
-	val dataFlow = mRepository.getDataFlow()
+
+	val allUserFlow = mRepository.getAllUsers()
 
 	fun insertData(bean: AccountBean) {
 		launchIO { mRepository.insertData(bean) }
 	}
 
 	fun insertDataIO(bean: AccountBean) = mRepository.insertData(bean)
+
+	fun getUserById(i: Int) = mRepository.getDataFlow(i)
 
 }

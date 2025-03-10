@@ -12,11 +12,14 @@ import tech.jour.template.common.coroutine.launchWithLoading
 import tech.jour.template.common.model.db.AccountBean
 import tech.jour.template.common.ui.BaseFragment
 import tech.jour.template.databinding.FragmentSecondBinding
+import tech.jour.template.module.xpop.toastCenter
 
 @AndroidEntryPoint
 class SecondFragment : BaseFragment<FragmentSecondBinding, SecondViewModel>() {
 
 	override val mViewModel: SecondViewModel by viewModels()
+
+	private var allUserList = emptyList<AccountBean>()
 
 	override fun initView() {
 		mBinding.apply {
@@ -27,7 +30,7 @@ class SecondFragment : BaseFragment<FragmentSecondBinding, SecondViewModel>() {
 				launchWithLoading {
 					mViewModel.insertDataIO(
 						AccountBean(
-							0, "testData",
+							1, "testData",
 							TimeUtils.getNowMills().toString()
 						)
 					)
@@ -40,15 +43,30 @@ class SecondFragment : BaseFragment<FragmentSecondBinding, SecondViewModel>() {
 //					)
 //				)
 			}
+			allBtn.clickDelay {
+				toastCenter(requireContext(), allUserList.toString())
+			}
 		}
 
 	}
 
 	override fun initObserve() {
+//		lifecycleScope.launch {
+//			mViewModel.getUserById(1).collectLatest {
+//				mBinding.textviewSecond.text = it?.nickname
+//				mBinding.phoneTv.text = it?.phone
+//			}
+//		}
+
 		lifecycleScope.launch {
-			mViewModel.dataFlow.collectLatest {
-				mBinding.textviewSecond.text = it?.nickname
-				mBinding.phoneTv.text = it?.phone
+			mViewModel.allUserFlow.collectLatest {
+				if (!it.isNullOrEmpty()) {
+					allUserList = it
+					allUserList.find { it.id == 1 }.apply {
+						mBinding.textviewSecond.text = this?.nickname
+						mBinding.phoneTv.text = this?.phone
+					}
+				}
 			}
 		}
 	}

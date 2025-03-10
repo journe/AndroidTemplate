@@ -16,7 +16,7 @@ import tech.jour.template.common.room.dao.AccountDao
  */
 @Database(
 	entities = [AccountBean::class],
-	version = 1,
+	version = 3,
 	exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -49,7 +49,7 @@ abstract class AppDatabase : RoomDatabase() {
 							getInstance(context).accountDao()
 								.insert(
 									AccountBean(
-										id = 0,
+										id = 1,
 										nickname = "SampleData",
 										phone = "188-1235-4568"
 									)

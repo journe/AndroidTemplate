@@ -16,5 +16,11 @@ interface AccountDao {
 	fun getUserByIdFlow(id: Int): Flow<AccountBean?>
 
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
-	fun insert(obj: AccountBean)
+	fun insert(obj: AccountBean): Long
+
+	@Query("SELECT * FROM AccountBean WHERE rowid = :rowId")
+	fun getUserByRowId(rowId: Long): AccountBean?
+
+	@Query("SELECT * FROM AccountBean")
+	fun getAllUsers():Flow<List<AccountBean>?>
 }
